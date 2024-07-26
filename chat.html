@@ -1,0 +1,65 @@
+{% extends 'base.html' %} 
+{% block content %}
+<div class="message-box">
+  <h2>General Chat Room</h2>
+  <div class="messages" id="messages">
+    {% for msg in messages %}
+        <div class="text">
+            <img src="{{ msg.avatar or 'https://img.upanh.tv/2024/07/26/IMG_2420.jpg' }}" alt="Avatar" class="avatar">
+            <div class="message-content">
+                <span class="name">{{ msg.name }}</span> {{ msg.message }}
+                <span class="muted">
+                    {{ msg.timestamp or '' }} 
+                </span>
+            </div>
+        </div>
+    {% endfor %}
+  </div>
+  <div class="inputs">
+    <input
+      type="text"
+      rows="3"
+      placeholder="Message"
+      name="message"
+      id="message"
+    />
+    <button type="button" name="send" id="send-btn" onClick="sendMessage()">
+      Send
+    </button>
+  </div>
+</div>
+<script type="text/javascript">
+  var socketio = io();
+
+  const messages = document.getElementById("messages");
+
+  const createMessage = (name, msg, avatar) => {
+    const content = `
+    <div class="text">
+        <img src="${avatar || 'https://img.upanh.tv/2024/07/26/IMG_2420.jpg'}" alt="Avatar" class="avatar">
+        <div class="message-content">
+            <span class="name">${name}</span> ${msg}
+            <span class="muted">
+                ${new Date().toLocaleString()}
+            </span>
+        </div>
+    </div>
+    `;
+    messages.innerHTML += content;
+    messages.scrollTop = messages.scrollHeight; // Auto-scroll to bottom
+  };
+
+  socketio.on("message", (data) => {
+    createMessage(data.name, data.message, data.avatar);
+  });
+
+  const sendMessage = () => {
+    const messageInput = document.getElementById("message");
+    const message = messageInput.value;
+    if (message == "") return;
+
+    socketio.emit("message", { data: message });
+    messageInput.value = ""; // Clear the input field
+  };
+</script>
+{% endblock %}

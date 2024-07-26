@@ -1,0 +1,205 @@
+/* Centering content on the page */
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+/* Form styling */
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+}
+
+.buttons h3 {
+  font-family: 'Montserrat', sans-serif;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.buttons div {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.buttons label {
+  display: block;
+  margin-bottom: 5px;
+  font-family: 'Lora', serif;
+  color: #555;
+}
+
+.buttons input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: 'Lora', serif;
+  box-sizing: border-box;
+}
+
+.join {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.join input[type="text"] {
+  flex: 1;
+}
+
+/* Styling join button */
+.join-btn {
+  background-color: #1e88e5;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.join-btn:hover {
+  background-color: #1565c0;
+  transform: translateY(-2px);
+}
+
+/* Styling create button */
+.create-btn {
+  width: 100%;
+  background-color: #00796b;
+  color: #ffffff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.create-btn:hover {
+  background-color: #004d40;
+  transform: translateY(-2px);
+}
+
+/* Message box styling */
+.message-box {
+  border: 2px solid #00796b;
+  border-radius: 10px;
+  background-color: #ffffff;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  max-width: 800px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Styling message container */
+.messages {
+  overflow-y: auto;
+  flex: 1;
+  width: 100%;
+  padding: 10px;
+  background-color: #fafafa;
+  font-family: 'Lora', serif;
+}
+
+/* Styling input area */
+.inputs {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  background-color: #eeeeee;
+  border-top: 1px solid #ddd;
+}
+
+/* Centering header text */
+h2 {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  color: #333;
+}
+
+/* Full-width message input field */
+#message {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: 'Lora', serif;
+}
+
+/* Styling individual message text */
+.text { /* Container for each message */
+  display: flex;
+  align-items: flex-start; 
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #e1f5fe;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-family: 'Lora', serif;
+  color: #333;
+  word-wrap: break-word;
+}
+
+/* Avatar styling */
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.message-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-weight: bold;
+}
+
+/* Styling muted text (e.g., timestamps) */
+.muted {
+  font-size: 12px;
+  color: #757575;
+  font-family: 'Lora', serif;
+}
+
+/* Send button styling */
+#send-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #42a5f5, #00796b);
+}
+
+#send-btn:hover {
+  background: linear-gradient(135deg, #00796b, #42a5f5);
+  transform: translateY(-2px);
+}

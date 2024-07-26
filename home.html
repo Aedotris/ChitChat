@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="post" class="buttons" onsubmit="return validateForm()" action="/">
+  <h3>Enter The Chat</h3>
+  <div>
+    <label for="name">Name:</label>
+    <input
+      type="text"
+      placeholder="Pick a name!"
+      name="name"
+      id="name"
+      value="{{name}}"
+    />
+  </div>
+  <div>
+    <label for="avatar">Avatar URL:</label>
+    <input 
+        type="text" 
+        placeholder="Image Link (Optional)" 
+        name="avatar" 
+        id="avatar" 
+        value="{{avatar}}" 
+    />
+  </div>
+  <button type="submit" name="create" class="create-btn">Enter Chat</button>
+  {% if error %}
+  <ul>
+    <li>{{error}}</li>
+  </ul>
+  {% endif %}
+</form>
+<script>
+  function validateForm() {
+    const name = document.getElementById('name').value;
+    const specialChars = /[!@#$%^&*(),.?":{}|<>]/g;
+    if (specialChars.test(name)) {
+      alert("Name should not contain special characters.");
+      return false;
+    }
+    return true;
+  }
+</script>
+{% endblock %}
